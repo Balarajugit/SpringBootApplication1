@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>WELCOME TO THE REGISTERATION PAGE</h1>
+<form action="#" method="POST" th:action="@{/customer/save}" th:object="${customer}">
+<pre>
+
+CODE : <input type="text" th:field="*{custCode}"/>
+NAME : <input type="text" th:field="*{custName}"/>
+TYPE : <select th:field="*{custType}">
+		<option value="">--SELECT--</option>
+		<option value="PROD">PROD</option>
+		<option value="GREA">GREA</option>
+		<option value="KIUY">KIUY</option>
+		<option value="BGT">BGT</option>
+		</select>
+NOTE : <textarea th:field="*{note}"></textarea>
+
+<input type="submit" value="CREATE">
+
+</pre>
+</form>
+<span th:text="${message}"></span>
+
+<a th:href="@{/customer/data}">total records</a>
+</body>
+</html>
