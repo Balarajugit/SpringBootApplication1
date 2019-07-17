@@ -5,10 +5,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>WELCOME TO THE REGISTERATION PAGE</h1>
-<form action="#" method="POST" th:action="@{/customer/save}" th:object="${customer}">
+<h1>WELCOME TO THE UPDATE PAGE</h1>
+<form action="#" method="POST" th:action="@{/customer/updated}" th:object="${customer}">
 <pre>
-
+ID   : <input type="text" th:field="*{custId}" readonly="true"/>
 CODE : <input type="text" th:field="*{custCode}"/>
 NAME : <input type="text" th:field="*{custName}"/>
 TYPE : <select th:field="*{custType}">
@@ -20,12 +20,11 @@ TYPE : <select th:field="*{custType}">
 		</select>
 NOTE : <textarea th:field="*{note}"></textarea>
 
-<input type="submit" value="CREATE">
+<input type="submit" value="UPDATE">
 
 </pre>
 </form>
 <span th:text="${message}"></span></br></br>
-
 <a th:href="@{/customer/data}">total records</a>
 </body>
 </html>

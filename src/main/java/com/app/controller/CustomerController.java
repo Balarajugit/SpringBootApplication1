@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.app.module.Customer;
 import com.app.service.ICustomerService;
@@ -52,5 +53,21 @@ public class CustomerController {
 		map.addAttribute("message", "deleted '"+id+"' record");
 		return "Data";
 	}
-
+	@RequestMapping("/update/{id}")
+	public String updateForm(Model map,@PathVariable Integer id) {
+		Customer c=service.getById(id);
+		map.addAttribute("customer", c);
+		
+		return "Update";
+	}
+	@RequestMapping(value = "/updated",method = RequestMethod.POST)
+	public String updateRecord(@ModelAttribute Customer customer,Model map) {
+		
+		Integer id=service.updateDetails(customer);
+		map.addAttribute("message", "your '"+id+"' Reord updated sucessfully");
+		map.addAttribute("customer", new Customer());
+		
+		
+		return "Register";
+	}
 }

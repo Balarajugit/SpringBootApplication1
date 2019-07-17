@@ -13,7 +13,7 @@
  <th>NAME</th>
  <th>TYPE</th>
  <th>NOTE</th>
- <th colspan="2">OPERATORS</th>
+ <th colspan="3">OPERATORS</th>
 </tr>
 <tr th:each="ob:${list}">
 	<td th:text="${ob.custId}"></td>
@@ -27,12 +27,15 @@
 	<td>
 	<a th:href="@{/customer/delete/{id}(id=${ob.custId})}">DELETE</a>
 	</td>
+	<td>
+	<a th:href="@{/customer/update/{id}(id=${ob.custId})}">UPDATE</a>
+	</td>
 
 
 </tr>
 </table>
 
-<span th:text="${message}"></span>
+<span th:text="${message}"></span></br></br>
 
 <a th:href="@{/customer/reg}">REGISTER</a>
 </body>

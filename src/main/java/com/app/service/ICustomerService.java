@@ -10,5 +10,6 @@ public interface ICustomerService {
 	public List<Customer> getAppCustomers();
 	public Customer getById(Integer custId);
 	public void deleteById(Integer custId);
+	public Integer updateDetails(Customer cu);
 
 }
